@@ -7,19 +7,17 @@ function MainHeader() {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>
-                <div>
-                    <Link href="/">NextEvents</Link>
-                </div>
-                <nav className={classes.navigation}>
-                    <ul>
-                        <li>
-                            <Link href="/events">Browse All Events</Link>
-                        </li>
-                    </ul>
-                </nav>
+                <Link href="/">NextEvents</Link>
             </div>
+            <nav className={classes.navigation}>
+                <ul>
+                    <li>
+                        <Link href="/events">Browse All Events</Link>
+                    </li>
+                </ul>
+            </nav>
         </header>
     );
-}
+}  
 
 export default MainHeader;
