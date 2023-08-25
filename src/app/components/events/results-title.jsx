@@ -10,7 +10,7 @@ function ResultsTitle(props) {
   });
 
   return (
-    <section className={classes.title}>
+    <section className="classes.title my-8 mx-auto max-w-[40rem] text-center">
       <h1>Events in {humanReadableDate}</h1>
       <Button link='/events'>Show all events</Button>
     </section>

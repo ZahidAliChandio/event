@@ -17,11 +17,11 @@ function EventSearch({ onSearch }: { onSearch: (arg0: string, arg1: string) => v
         onSearch(selectedYear, selectedMonth);
     }
     return (
-        <form className={classes.form} onSubmit={submitHandler}>
-            <div className={classes.controls}>
-                <div className={classes.control}>
-                    <label htmlFor="year">Year</label>
-                    <select id="year" ref={yearInputRef}>
+        <form className="classes.form p-4 bg-white rounded-md flex justify-between flex-col md:flex-row gap-4 w-11/12 max-w-[40rem] my-8 mx-auto shadow-[0_1px_4px_rgba(0,0,0,0.2)]" onSubmit={submitHandler}>
+            <div className="classes.controls w-full md:w-10/12 flex gap-4 flex-col">
+                <div className="classes.control flex flex-1 gap-4 items-center justify-between">
+                    <label htmlFor="year font-bold">Year</label>
+                    <select id="year" ref={yearInputRef} className="w-3/4 md:w-full bg-white rounded-md p-1" title="year">
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
                     </select>
@@ -36,7 +36,7 @@ function EventSearch({ onSearch }: { onSearch: (arg0: string, arg1: string) => v
                     </select>
                 </div>
             </div>
-            <Button type="submit">Find Events</Button>
+            <Button type="submit" className="w-full md:w-1/5 py-1 px-2 bg-teal-500 text-teal-100 rounded border border-[#03be9f]">Find Events</Button>
         </form>
     )
 }
