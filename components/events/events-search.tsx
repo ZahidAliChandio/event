@@ -5,14 +5,16 @@ import { useRef } from "react";
 import Button from "../ui/button"
 import classes from "./events-search.module.css"
 
-function EventSearch(props: any) {
+// function EventSearch(props: { onSearch: (arg0: string, arg1: string) => void; }) {
+function EventSearch({ onSearch }: { onSearch: (arg0: string, arg1: string) => void}) {
     const yearInputRef = useRef<HTMLSelectElement>(null);
     const monthInputRef = useRef<HTMLSelectElement>(null);
     function submitHandler(e: any) {
         e.preventDefault();
-        const selectedYear = yearInputRef?.current?.value;
-        const selectedMonth = monthInputRef?.current?.value;
-        props.onSearch(selectedYear, selectedMonth);
+        // Exclamanation mark is used to tell typescript that the value is not null
+        const selectedYear: string = yearInputRef?.current?.value!;
+        const selectedMonth: string = monthInputRef?.current?.value!;
+        onSearch(selectedYear, selectedMonth);
     }
     return (
         <form className={classes.form} onSubmit={submitHandler}>
