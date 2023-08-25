@@ -1,5 +1,5 @@
 import { getFeaturedEvents } from '../helpers/api-util';
-import EventList from '../../components/events/event-list';
+import EventList from './components/events/event-list';
 import { EventProps } from '@/types/types';
 
 

@@ -1,9 +1,10 @@
-'use client';
+'use client';   
 
 import { useRouter } from "next/navigation";
+import Head from "next/head";
 
-import EventList from "../../../components/events/event-list";
-import EventSearch from "../../../components/events/events-search";
+import EventList from "../components/events/event-list";
+import EventSearch from "../components/events/events-search";
 // import { getAllEvents, getFilteredEvents } from "../../../dummy-data";
 import { EventProps } from "@/types/types";
 import { getAllEvents } from '../../helpers/api-util';
@@ -15,8 +16,8 @@ async function getEvents () {
 
 
 async function Events(){
-    const router = useRouter();
     function findEventsHandler(year: any, month: any) {
+        const router = useRouter();
         const fullPath = `/events/${year}/${month}`;
         router.push(fullPath );
     }
@@ -25,8 +26,12 @@ async function Events(){
 
     return (
         <div>
+            <Head>
+                <title>From Event</title>
+                <meta property="og:title" content="From Event" key="title" />
+            </Head>
             <EventSearch onSearch={findEventsHandler}/>
-             <EventList events={events} />
+            <EventList events={events} />
         </div>
     );
 }
