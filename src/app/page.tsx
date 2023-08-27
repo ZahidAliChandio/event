@@ -1,6 +1,7 @@
 import { getFeaturedEvents } from '../helpers/api-util';
 import EventList from './components/events/event-list';
 import { EventProps } from '@/types/types';
+import NewsletterRegistration from './components/input/newsletter-registration';
 
 
 async function getEvents () {
@@ -13,6 +14,7 @@ async function Home () {
 
   return (
       <main>
+          <NewsletterRegistration/>
           <EventList events={events} />
       </main>
   )
