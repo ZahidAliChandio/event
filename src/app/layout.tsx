@@ -1,4 +1,4 @@
-import MainHeader from '../../components/navbar/main-header'
+import MainHeader from './components/navbar/main-header'
 import './globals.css'
 import type { Metadata } from 'next'
 

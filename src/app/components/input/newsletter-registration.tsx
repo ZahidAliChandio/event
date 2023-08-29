@@ -1,24 +1,28 @@
+'use client';
+
 import { useRef } from 'react';
+import axios from "axios"
 
 import classes from './newsletter-registration.module.css';
 
 function NewsletterRegistration() {
   const emailInputRef = useRef<HTMLInputElement>(null);
-
-  function registrationHandler(event: React.FormEvent<HTMLFormElement>) {
+  
+  async function registrationHandler(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const enteredEmail = emailInputRef?.current?.value;
 
-    fetch('/api/newsletter', {
-      method: 'POST',
-      body: JSON.stringify({ email: enteredEmail }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    try {
+      
+      const response = await axios.post("/api/newsletter", { email: enteredEmail })
+      if(response.status === 200) {
+        emailInputRef.current!.value = ""
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
